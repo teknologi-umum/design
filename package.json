@@ -1,0 +1,21 @@
+{
+  "name": "teknum-design",
+  "version": "1.0.0",
+  "description": "Teknum Design System",
+  "scripts": {
+    "watch": "stylus -w style.styl -o style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teknologi-umum/design.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/teknologi-umum/design/issues"
+  },
+  "homepage": "https://teknologi-umum.github.io/design/",
+  "devDependencies": {
+    "stylus": "^0.55.0"
+  }
+}
