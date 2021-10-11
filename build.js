@@ -26,12 +26,13 @@ const stylusRender = util.promisify(stylus.render)
     const dirContent = await traverse('./src');
 
     for (const file of dirContent) {
-      const outFile = './dist' + file.path.replace(/^\.\/src/i, '');
+      const outFile = './dist' + file.path.replace(/^\.\/src/i, '').replace(/\.(css|styl|sass|scss|less)$/i, '.css');
       Promise.allSettled([checkAndCreateDir(outFile)]);
 
       switch (file.ext) {
         case 'css': {
-          Promise.allSettled([await fs.copyFile(path.resolve(__dirname, file.path), path.resolve(__dirname, outFile))]);
+          const c = await fs.readFile(path.resolve(__dirname, file.path), { encoding: 'utf-8' });
+          Promise.allSettled([await fs.writeFile(path.resolve(__dirname, outFile), c, { encoding: 'utf-8' })])          
           console.log(`✅ ${file.path} -> ${outFile}`);
           break;
         }
