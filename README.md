@@ -1,2 +1,5 @@
-# design
-The Teknum Design System
+# TEKNUM Design System
+
+>
+> Work in progress. Stay tuned.
+>
